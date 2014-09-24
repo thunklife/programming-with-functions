@@ -1,0 +1,1130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Programming With Functions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section class="intro" data-background="images/leader.jpg">
+          <h1>Programming With Functions</h1>
+        </section>
+        <section class="speaker" data-background="images/hustle.jpg" data-background-repeat="repeat" data-background-size="500px">
+          <h3>@jessewilliamson</h3>
+          <h3>wilhelmson.github.io</h3>
+        </section>
+        <section class="functions-math" data-background="images/math.jpg">
+          <h1>Functions in Math</h1>
+          <h3> x → y</h3>
+        </section>
+        <section data-background="images/golden-beach.jpg">
+          <blockquote>
+             [A] function is a relation between a set of inputs and a set of permissible outputs with the property that each input is related to exactly one output.
+          </blockquote>
+          <cite>-Wikipedia<small>so you know it's legit</small></cite>
+        </section>
+        <section data-background="images/math.jpg">
+          <h3>The set of inputs is the domain</h3>
+          <h3>The set of outputs is the codomain</h3>
+          <aside class="notes">
+            <ul>
+              <li>In programming, this represents the type of a function</li>
+            </ul>
+          </aside>
+        </section>
+        <section class="functions-math" data-background="images/math.jpg">
+          <h3>Functions map an argument to a value</h3>
+          <h4>x → y</h4>
+          <p>each argument maps to exactly one value</p>
+        </section>
+        <section class="functions-math" data-background="images/math.jpg">
+          <h3>square(3) = 9 </h3>
+          <p class="fragment">always</p>
+        </section>
+        <section class="functions-programming" data-background="images/programming.jpg">
+          <h1>Functions in Programming</h1>
+          <h3>? → ?</h3>
+        </section>
+        <section class="functions-programming" data-background="images/programming.jpg">
+          <h3>Functions do all kinds of things</h3>
+        </section>
+        <section class="functions-programming" data-background="images/programming.jpg">
+          <p>they take arguments <span class="fragment">or not</span></p>
+          <p class="fragment">they return values <span class="fragment">or not</span></p>
+          <p class="fragment">they can mutate state, or rely on hidden state</p>
+          <p class="fragment">they may not have a clear domain or codomain</p>
+          <p class="fragment">they can "launch the missles"</p>
+          <aside class="notes">
+            <ul>
+              <li>these aren't true in all languages, but most</li>
+              <li>functions in programming can be more like functions in math, but usually aren't</li>
+            </ul>
+          </aside>
+        </section>
+        <section class="function-javascript" data-background="images/javascript.jpg">
+          <h1>Functions in JavaScript</h1>
+          <p class="fragment">are awesome <span class="fragment">and weird</span></p>
+        </section>
+        <section data-background="images/javascript.jpg">
+          <p>functions are first-class members</p>
+          <p class="fragment">functions are objects</p>
+          <p class="fragment"><em>this</em></p>
+          <aside class="notes">
+            <ul>
+              <li>as first class members they are the same as any value. the can be stored in variables, passed to and returned from functions</li>
+              <li>as objects they have useful, and not so useful properties. Function.prototype.length, apply, call, name</li>
+              <li>this if you don't think a function having this is weird, I don't know what to say</li>
+              <li>don't use this in a function if you can avoid it</li>
+            </ul>
+          </aside>
+        </section>
+        <section data-background="images/javascript.jpg">
+          <h3>Our functions tend to be...</h3>
+          <p class="fragment">highly specific</p>
+          <p class="fragment">highly imperative</p>
+          <p class="fragment">not really like functions at all</p>
+          <aside class="notes">
+            <ul>
+              <li>this is true in most langs</li>
+              <li>we like our OO code, so our functions are usually specific to objects</li>
+              <li>highly concerned with the steps involved. think of a for loop</li>
+              <li>they usually hang off objects (methods)</li>
+            </ul>
+          </aside>
+        </section>
+        <section data-background="images/javascript.jpg">
+          <h3>We should use more functions</h3>
+          <p>like, lots more</p>
+        </section>
+        <section  class="quote" data-background="images/golden-grain.jpg">
+          <blockquote>
+            It is better to have 100 functions operate on one data structure than 10 functions on 10 data structures.
+          </blockquote>
+          <cite>-Obligatory Alan Perlis Quote</cite>
+          <aside class="notes">
+            <ul>
+              <li>this quote is called out in lots of FP talks</li>
+              <li>The idea is to have simple functions that operate on simple data structures</li>
+              <li>The more specific a function is, the less reusable it is</li>
+            </ul>
+          </aside>
+        </section>
+        <section data-background="images/idea.jpg">
+          <h1>Functional thinking</h1>
+          <aside class="notes">
+            <ul>
+              <li>it's not just about new techniques, it's about changing how you approach problems</li>
+            </ul>
+          </aside>
+        </section>
+        <section data-background="images/idea.jpg">
+          <h3>Solve problems with verbs</h3>
+          <aside class="notes">
+            <ul>
+              <li>we tend to think of programs in nouns, and verbs are attached to them</li>
+              <li>this is your normal OO way of doing things</li>
+              <li>verbs without nouns are more freely reusable</li>
+              <li>doesn't require us to make up new nouns just to carry around our verbs, *cough* Java *cough*</li>
+            </ul>
+          </aside>
+        </section>
+        <section data-background="images/idea.jpg">
+          <h3>Think about results not steps</h3>
+          <aside class="notes">
+            <ul>
+              <li>fp allows you to work at a higher level of abstraction</li>
+              <li>you're not concerned with things like iteration</li>
+            </ul>
+          </aside>
+        </section>
+        <section data-background="images/idea.jpg">
+          <h3>Think in terms of transformations</h3>
+          <aside class="notes">
+            <ul>
+              <li>this style of programming is especially useful for transforming data</li>
+              <li>break problems into a series of transformations</li>
+            </ul>
+          </aside>
+        </section>
+        <section data-background="images/idea.jpg">
+          <h3>Keep it simple</h3>
+          <p class="fragment">use simple data structures</p>
+          <p class="fragment">use simple functions</p>
+          <aside class="notes">
+            <ul>
+              <li>simple structures are easy to transform</li>
+              <li>specifc structures reduce reusability</li>
+              <li>the same is true for simple, generic functions</li>
+              <li>IMO I get more reuse from functions that "classes"</li>
+            </ul>
+          </aside>
+        </section>
+        <section data-background="images/snow.jpg">
+          <h1>Pure Functions</h1>
+          <h3>x → y</h3>
+          <aside class="notes">
+            <ul>
+              <li>so what types of functions are we talking about</li>
+            </ul>
+          </aside>
+        </section>
+        <section data-background="images/snow.jpg">
+          <h3>A pure function...</h3>
+          <p class="fragment">takes in arguments and returns values</p>
+          <p class="fragment">uses no hidden state</p>
+          <p class="fragment">has no side effects</p>
+          <p class="fragment">is referentially transparent</p>
+          <aside class="notes">
+            <ul>
+              <li>pure functions are like functions in mathematics</li>
+              <li>relational equality/referential transparency is to replace function call with its return value without changing the program</li>
+              <li>purity is hard in JS. It's not built-in to the data types. However, you can bring in things like Mori</li>
+              <li>I'm not going to enforce 100% purity in the examples</li>
+            </ul>
+          </aside>
+        </section>
+        <section data-background="images/snow.jpg">
+          <h3>More Importantly</h3>
+          <h4>they are easy to reason about, and test</h4>
+          <p class="fragment">but most importantly pure functions are...</p>
+        </section>
+        <section data-background="images/important.jpg">
+          <h2>Composable</h2>
+          <aside class="notes">
+            <ul>
+              <li>composition is key to programming in this style</li>
+              <li>it's what makes this all work</li>
+            </ul>
+          </aside>
+        </section>
+        <section data-background="images/abstract.jpg">
+          <h1>Functions As Behaviors</h1>
+        </section>
+        <section data-background="images/abstract.jpg">
+          <h3>Even the simplest behavior can become a function</h3>
+          <p class="fragment">Constructs we take for granted can be abstracted into functions</p>
+          <p class="fragment">if, not, and, or, for loops, existence, indexability</p>
+          <aside class="notes">
+            <ul>
+              <li>we create abstractions when we see duplication or a chance for reuse</li>
+              <li>why not simple things too, why should you ever write a for loop again?</li>
+              <li>the idea is to string things together more declaratively</li>
+            </ul>
+          </aside>
+        </section>
+        <section data-background="images/abstract.jpg">
+          <h3>prop</h3>
+          <pre>
+            <code>
+              function prop(name,obj){
+                return obj[name];
+              }
+            </code>
+          </pre>
+          <aside class="notes">
+            <ul>
+              <li>This function may not seem very useful, but with a few changes it can be pretty powerful</li>
+            </ul>
+          </aside>
+        </section>
+        <section data-background="images/abstract.jpg">
+          <h3>not</h3>
+          <pre>
+            <code>
+              function not(val){
+                return !val;
+              }
+            </code>
+          </pre>
+        </section>
+        <section data-background="images/abstract.jpg">
+          <h3>Why would I even?</h3>
+          <p class="fragment">because little, general, pure functions are</p>
+        </section>
+        <section data-background="images/important.jpg">
+          <h2>Composable</h2>
+          <aside class="notes">
+            <ul>
+              <li>there's that word again</li>
+              <li>again, the goal is to write programs more declartivly</li>
+              <li>to concern ourselve with the what, not the how</li>
+              <li>abstracting behaviors helps to do that</li>
+            </ul>
+          </aside>
+        </section>
+        <section data-background="images/compose.jpg">
+          <h1>Function Composition</h1>
+        </section>
+        <section data-background="images/compose.jpg">
+          <h3>f = x → y</h3>
+          <h3 class="fragment">g = y → z</h3>
+          <h3 class="fragment">h = g ∘ f == x → z</h3>
+        </section>
+        <section data-background="images/compose.jpg">
+          <h3>(b → c) → (a → b) → a → c</h3>
+          <small>evil Haskell type signature</small>
+          <aside class="notes">
+            <ul>
+              <li>these signatures will pop up in different places in the examples.</li>
+              <li>mostly when it seems to clarify things</li>
+            </ul>
+          </aside>
+        </section>
+        <section data-background="images/compose.jpg">
+          <h3>It's like chaining, only in reverse</h3>
+        </section>
+        <section data-background="images/compose.jpg">
+          <h3>Chaining in Underscore/Lo-Dash</h3>
+          <pre>
+            <code>
+var stooges = [{name: 'curly', age: 25}, {name: 'moe', age: 21}, {name: 'larry', age: 23}];
+
+var youngest = _.chain(stooges)
+  .sortBy(function(stooge){ return stooge.age; })
+  .first()
+  .value(); //=> { age: 21, name: "moe" }
+            </code>
+          </pre>
+        </section>
+        <section data-background="images/compose.jpg">
+          <h3>Now using composition</h3>
+          <small>and maybe a couple other tricks, but nevermind that right now</small>
+          <pre>
+            <code>
+var stooges = [{name: 'curly', age: 25}, {name: 'moe', age: 21}, {name: 'larry', age: 23}];
+
+compose(first, sortBy(prop("age")))(stooges); //=> { age: 21, name: "moe" }
+            </code>
+          </pre>
+          <aside class="notes">
+            <ul>
+              <li>chaining is cool, but it's a one time thing</li>
+              <li>you can't chain some functions together and save that in a variable</li>
+              <li>compose returns a function, so we can hold on to that or do anything we want with it</li>
+            </ul>
+          </aside> 
+        </section>
+        <section data-background="images/compose.jpg">
+          <h3>Note that the calls go from right to left</h3>
+        </section>
+        <section data-background="images/compose.jpg">
+          <h3>Each function feeds its result to the next</h3>
+          <p class="mono">compose(h, g, f)(a) === h(g(f(a)))</p>
+        </section>
+        <section data-background="images/compose.jpg">
+          <h3>Composition gives us a way to make new functions from smaller ones</h3>
+          <small>high-fives all around</small>
+          <aside class="notes">
+            <ul>
+              <li>this is were having small behaviors comes in handy</li>
+              <li>so what, do you just write all your functions with one arg?</li>
+            </ul>
+          </aside>
+        </section>
+        <section data-background="images/compose.jpg">
+          <h3>So just write all your functions with one argument</h3>
+          <small>thank you and good night</small>
+        </section>
+        <section data-background="images/curry.jpg">
+          <h1>Currying</h1>
+          <aside class="notes">
+            <ul>
+              <li>named after the man who discovered the idea Haskell Curry</li>
+              <li>but he wasn't the only one - Schonfinkel</li>
+            </ul>
+          </aside>
+        </section>
+        <section data-background="images/curry.jpg">
+          <h3>A curried function gets its arguments one at a time</h3>
+        </section>
+        <section data-background="images/curry.jpg">
+          <pre>
+            <code>
+              function add(a){
+                return function(b){
+                  return a + b;
+                };
+              }
+
+              add(1)(2) //=> 3 (pause for effect)
+            </code>
+          </pre>
+        </section>
+        <section data-background="images/curry.jpg">
+          <h3>Currying gives us a another way to make new functions from old ones</h3>
+          <p>we delay the application of some arguments</p>
+          <pre>
+            <code>
+              var add10 = add(10);
+              [1, 2, 3].map(add10); //=> [11, 12, 13];
+            </code>
+          </pre>
+        </section>
+        <section data-background="images/curry.jpg">
+          <h3>Stooges revisited</h3>
+          <pre>
+            <code>
+var stooges = [{name: 'curly', age: 25}, {name: 'moe', age: 21}, {name: 'larry', age: 23}];
+
+compose(first, sortBy(prop("age")))(stooges); //=> { age: 21, name: "moe" }
+            </code>
+          </pre>
+          <aside class="notes">
+            <ul>
+              <li>The previous example works because prop was curried</li>
+              <li>it was waiting for an object to get data from</li>
+              <li>it got those object from sortBy, one by one</li>
+            </ul>
+        </section>
+        <section data-background="images/curry.jpg">
+          <h3>Writing manually curried functions is tedious</h3>
+          <small>which is why cool languages like Haskell curry every function</small>
+          <aside class="notes">
+            <ul>
+              <li>other languages have functions like partial built in</li>
+            </ul>
+          </aside>
+        </section>
+        <section data-background="images/curry.jpg">
+          <h3>There's got to be a better way</h3>
+          <small>there is, but more on that later</small>
+        </section>
+        <section data-background="images/birds-eye.jpg">
+          <h1>Higher Order Functions</h1>
+          <p>functions in and/or functions out</p>
+        </section>
+        <section data-background="images/birds-eye.jpg">
+          <h3>If you've every passed a callback, you've used higher order functions</h3>
+        </section>
+        <section data-background="images/birds-eye.jpg">
+          <section>
+            <h3>Common Examples</h3>
+          </section>
+          <section>
+            <h4>map</h4>
+            <p>[a] → (a → b) → [b]</p>
+            <pre>
+              <code >
+                [1, 2, 3].map(
+                  function(n){
+                    return n * 2;
+                  }); //=> [1, 4, 6]
+              </code>
+            </pre>
+          </section>
+          <section>
+            <h4>filter</h4>
+            <p>[a] → (a → bool) → [a]</p>
+            <pre>
+              <code >
+                [1, 2, 3].filter(
+                  function(n){
+                    return n % 2 == 0;
+                  }); //=> [2]
+              </code>
+            </pre>
+          </section>
+          <section>
+            <h4>reduce</h4>
+            <small>aka fold</small>
+            <p>[a] → (a → b → b) → b → b*</p>
+            <pre>
+              <code >
+                [1, 2, 3].reduce(
+                  function(acc, n){
+                    return acc + n;
+                  }, 0); //=> 6
+              </code>
+            </pre>
+            <small>*In JavaScript the accumulator is optional, but it shouldn't be</small>
+          </section>
+        </section>
+        <section data-background="images/birds-eye.jpg">
+          <h3>These functions share a common problem</h3>
+        </section>
+        <section data-background="images/birds-eye.jpg">
+          <div class="higher-order-list">
+            <h3>Map</h3>
+            <p>[a] → (a → b) → [b]</p>
+          </div>
+          <div class="higher-order-list">
+            <h3>Filter</h3>
+            <p>[a] → (a → bool) → [a]</p>
+          </div>
+          <div class="higher-order-list">
+            <h3>Reduce</h3>
+            <p>[a] → (a → b → b) → b → b</p>
+          </div>
+        </section>
+        <section data-background="images/birds-eye.jpg">
+          <h3>The data always comes first</h3>
+          <p>which means they're not composable</p>
+          <aside class="notes">
+            <ul>
+              <li>also they're not curried, but that can be changed</li>
+            </ul>
+          </aside>
+        </section>
+        <section data-background="images/important.jpg">
+          <h3>Put your data last</h3>
+          <aside class="notes">
+            <ul>
+              <li>not just data, but anything that can vary.</li>
+              <li>put the stuff you want to reuse first</li>
+              <li>this enables point-free programming (creating functions without arguments)</li>
+            </ul>
+          </aside>
+        </section>
+        <section data-background="images/fold.jpg">
+          <section>
+            <h3>A Quick Detour</h3>
+            <p>fun with reduce</p>
+          </section>
+          <section>
+            <pre>
+              <code>
+                //+ (a → b → b) → b → [a] → b
+                function reduce(f){
+                  return function(b){
+                    return function(xs){
+                      return xs.reduce(f,b);
+                    };
+                  };
+                }
+              </code>
+            </pre>
+          </section>
+          <section>
+            <h3>Folds are amazing</h3>
+          </section>
+          <section>
+            <h3>Some of your favorite functions are folds</h3>
+            <p class="fragment">map, filter, forEach</p>
+          </section>
+          <section>
+            <h3>What else can we do with a fold</h3>
+          </section>
+          <section>
+            <h3>sum</h3>
+            <pre>
+              <code>
+                function sum (xs){
+                  var sum = 0;
+                  for(var i=0, len = xs.length; i < len; i++){
+                    sum += xs[i];
+                  }
+                  return sum;
+                }
+              </code>
+            </pre>
+            <p>-or-</p>
+            <pre>
+              <code>
+                var sum = reduce(add, 0);
+              </code>
+            </pre>
+          </section>
+          <section>
+            <h3>allTrue & anyTrue</h3>
+            <pre>
+              <code>
+                var allTrue = reduce(and, true)
+                
+                function and(a, b){
+                  return a && b;
+                }
+              </code>
+            </pre>
+            <pre>
+              <code>
+                var anyTrue = reduce(or, false)
+                
+                function or(a, b){
+                  return a || b;
+                }
+              </code>
+            </pre>
+            <aside class="notes">
+              <ul>
+                <li>using folds greatly simplifies how you solve a problem</li>
+                <li>you don't need to think about looping, etc, you just think about the values you have and how you combine them</li>
+                <li>array reordering - take a sorted array, reorder by some prop, but maintain original order in sub orders</li>
+              </ul>
+            </aside>
+          </section>
+        </section>
+        <section data-background="images/factory.jpg">
+          <h1>Combinators</h1>
+          <p>functions in <em>and</em> functions out</p>
+        </section>
+        <section data-background="images/golden-sunset.jpg">
+          <blockquote>
+            Higher-order pure functions that take only functions as arguments and return a function.
+          </blockquote>
+          <cite>-Reg Braithwaite<small> JavaScript Allonge</small></cite>
+        </section>
+        <section data-background="images/factory.jpg">
+          <h3>combinators take functions and combine them into new ones</h3>
+        </section>
+        <section data-background="images/factory.jpg">
+          <h3>compose</h3>
+            <pre>
+              <code >
+                //+ (b → c) → (a → b) → a → c
+                function compose(g, f){
+                  return function(a){
+                    return g(f(a));
+                  };
+                }
+              </code>
+            </pre>
+            <aside class="notes">
+              <ul>
+                <li>this is less useful that compose in most libraries because it is binary</li>
+              </ul>
+            </aside>
+        </section>
+        <section data-background="images/factory.jpg">
+          <section>
+            <h3>A Traditional Combinator</h3>
+            <p>flip</p>
+          </section>
+          <section>
+            <h3>Flip</h3>
+            <pre>
+              <code>
+                //+ (a → b → c) → b → a → c
+                function flip(fn){
+                  return function(b){
+                    return function(a){
+                      return fn(a, b);
+                    }
+                  }
+                }
+              </code>
+            </pre>
+          </section>
+          <section>
+            <h3>A Better map</h3>
+            <pre>
+              <code>
+                //+ (a → b) → [a] → [b]
+                var betterMap = flip(_.map); //because we're all using Underscore/Lo-Dash
+
+                betterMap(function(x){ return x * x; }, [1,2,3]); //=> [1, 4, 9];
+
+                //or
+
+                //+ [a] → [b]
+                var squares = betterMap(function(x){ return x * x; }); //=>[Function]
+              </code>
+            </pre>
+            <aside class="notes">
+              <ul>
+                <li>since flip is curried, betterMap is curried and we can use it to make composable mapping functions</li>
+              </ul>
+            </aside>
+          </section>
+          <section>
+            <h3>Safe integer parsing</h3>
+            <pre>
+              <code>
+                map(parseInt, ['1', '2', '3']); //=>[1, NaN, NaN]
+              </code>
+            </pre>
+            <aside class="notes">
+              <ul>
+                <li>parseInt takes a string and a radix, map sends the current value and index to whatever function you suppy, so parseInt dies</li>
+              </ul>
+            </aside>
+          </section>
+          <section>
+            <h3>Radix season</h3>
+            <pre>
+              <code>
+                var safeParseInt = flip(parseInt)(10);
+
+                map(safeParseInt, ['1', '2', '3']); //=> [1, 2, 3];
+              </code>
+            </pre>
+            <aside class="notes">
+              <ul>
+                <li>by flipping parseInt and specifying 10 as the radix, we have a unary parseInt function for base 10</li>
+              </ul>
+            </aside>
+          </section>
+        </section>
+        <section data-background="images/factory.jpg">
+          <section>
+            <h3>An Argument For Combinators</h3>
+            <p>Logging</p>
+          </section>
+          <section>
+            <h3>Super A++ #1 Enterprise App</h3>
+            <pre>
+              <code>
+                function superAwesomeLogger(){
+                  console.log([].slice.call(arguments));
+                }
+              </code>
+            </pre>
+            <pre>
+              <code>
+                function add(a,b){
+                  return a + b;
+                }
+              </code>
+            </pre>
+          </section>
+          <section>
+            <h3>before</h3>
+            <pre>
+              <code>
+                //+ (a → b) → (a → c) → a → c
+                function before(decorator){
+                  return function(target){
+                    return function(){
+                      decorator.apply(this, arguments);
+                      return target.apply(this, arguments);
+                    }
+                  }
+                }
+              </code>
+            </pre>
+            <h3>after</h3>
+            <pre>
+              <code>
+                //+ (a → b) → (a → c) → a → c
+                function after(decorator){
+                  return function(target){
+                    return function(){
+                      var val = target.apply(this, arguments);
+                      decorator(val);
+                      return val;
+                    }
+                  }
+                }
+              </code>
+            </pre>
+          </section>
+          <section>
+            <h3>LOG ALL THE THINGS</h3>
+              <pre>
+                <code>
+                  var logBefore = before(superAwesomeLogger);
+                  var logAfter = after(superAwesomeLogger);
+
+                  var logAddArgs = logBefore(add);
+                  logAddArgs(1,2); //=> 3 and logs [1,2] to the console.
+
+                  var logAddResult = logAfter(add)
+                  logAddResult(1,2); //=> 3 and logs [3] to the console.
+
+                  var logBeforeAndAfter = compose(logAfter, logBefore);
+                  var superAwesomeAdder = logBeforeAndAfter(add);
+                  superAwesomeAdder(1,2) //=> 3 and logs [1,2] and [3] to the console.
+                </code>
+              </pre>
+          </section>
+        </section>
+        <section data-background="images/decorators.jpg">
+          <h1>Decorators</h1>
+        </section>
+        <section data-background="images/decorators.jpg">
+          <h3>decorators take a function and return a new one that is a variation of the original.</h3>
+        </section>
+        <section data-background="images/decorators.jpg">
+          <section>
+            <h3>Partial Application With Decorators</h3>
+            <p>curry</p>
+          </section>
+          <section>
+            <h3>More than one flavor of curry</h3>
+          </section>
+          <section>
+            <h3>Explicit arity</h3>
+            <pre>
+              <code>
+                function curry2(f){
+                  return function(a){
+                    return function(b){
+                      return f(a, b);
+                    }
+                  }
+                }
+              </code>
+            </pre>
+            <aside class="notes">
+              <ul>
+                <li>the benefit here is the explicitness. the downside is calling function one arg at a time, and having to right curry[n] functions</li>
+                <li>this could be rewritten so that multiple args can be applied at once</li>
+              </ul>
+          </section>
+          <section>
+            <h3>Variadic currry</h3>
+            <pre>
+              <code>
+                 function curry(fn, fnLen){
+                  fnLen = fnLen || fn.length;
+                  return function curriedFn(){
+                    var args = [].slice.call(arguments);
+                    if (args.length >= fnLen) return fn.apply(this, args);
+                    return function _curriedFn_(){
+                      var newArgs = [].slice.call(arguments);
+                      return curriedFn.apply(this, args.concat(newArgs));
+                    }
+                  }
+                }
+              </code>
+            </pre>
+            <aside class="notes">
+              <ul>
+                <li>my preferred curry function. allows you to curry a function of any length</li>
+                <li>downside is explicitness, and it sends more args to the function that it might want</li>
+                <li>you don't have to right this, lo-dash has it built in and better.</li>
+                <li>you can make curry[n] with this</li>
+              </ul>
+          </section>
+          <section>
+            <h3>Making curry[n] with curry</h3>
+            <pre>
+              <code>
+                var sumArgs = compose(sum, toArgs);
+                var curry2 = flip(curry)(2);
+                var curry3 = flip(curry)(3);
+
+                var add2 = curry(sumArgs);
+                var add3 = crry(sumArgs);
+
+                add2(1); //=> [Function]
+                add3(1, 2); //=> [Function]
+                
+                add2(1)(2); //=> 3
+                add2(1,2); //=> 3
+
+                add3(1)(2)(3); //=> 6
+                add3(1, 2, 3); //=> 6
+              </code>
+            </pre>
+          </section>
+        </section>
+        <section data-background="images/decorators.jpg">
+          <section>
+            <h3>Abstracting Common Constructs</h3>
+            <p>guarding against null & undefined</p>
+          </section>
+          <section>
+            <h3>maybe</h3>
+            <pre>
+              <code>
+                var maybe = curry(function(f, a){
+                  return a == null ? void 0 : f(a);
+                });
+              </code>
+            </pre>
+            <code>
+              <pre>
+                function sq(x){
+                  return x * x;
+                }
+
+                var safeSq = maybe(sq);
+
+                sq(); //=> Nan
+                sq(undefined); //=> Nan
+                sq(null); //=> 0 because JavaScript
+
+                safeSq(undefined); //=> undefined
+                safeSq(null); //=> undefined
+                safeSq(); //=> [Function] because maybe is curried
+              </code>
+            </pre>
+            <aside class="notes">
+              <ul>
+                <li>even maybe is too specific; it's really just a specific case of conditional execution</li>
+              </ul>
+            </aside>
+          </section>
+          <section>
+            <h3>Generalized Guards</h3>
+            <pre>
+              <code>
+                var provided = curry(function(guard, fn){
+                  return function(){
+                    return guard.apply(this, args) ? fn.apply(this, args) : void 0;
+                  }
+                });
+              </code>
+            </pre>
+            <pre>
+              <code>
+                var maybe = provided(function(val){
+                  return val != null;
+                });
+              </code>
+            </pre>
+          </section>
+        </section>
+        <section data-background="images/important.jpg">
+          <h3>Separate concerns. Use combinators and decorators to bring them together</h3>
+          <aside class="notes">
+            <ul>
+              <li>with curry, the secondary concern is applying arguments in succession</li>
+              <li>before/after allow you to specify what the concern is and when to run it</li>
+              <li>with provided, the concern is when to run your function</li>
+              <li>other examples include once, and fluent</li>
+              <li>you don't have to bake these things into your functions</li>
+            </ul>
+          </aside>
+        </section>
+        <section data-background="images/turtles.jpg">
+          <h1>Functions All The Way Down</h1>
+        </section>
+        <section data-background="images/turtles.jpg">
+          <section>
+            <h3>Revisiting maybe</h3>
+            <small>taken from JavaScript Combinators by Reg Braithwaite</small>
+            <pre>
+              <code>
+                var maybe = curry(function(fn, val){
+                  return val != null ? fn(val) : void  0;
+                });
+              </code>
+            </pre>
+          </section>
+          <section>
+            <h3>A specialized guard</h3>
+            <pre>
+              <code>
+                var maybe = provided(function(val){
+                  return val != null;
+                });
+              </code>
+            </pre>
+          </section>
+          <section>
+            <h3>Generalizing further</h3>
+              <pre>
+                <code>
+                  function not(fn){
+                    return function(){
+                      return !fn.apply(this, arguments);
+                    }
+                  }
+
+                  function isNothing(val){
+                    return val == null;
+                  }
+
+                  var except = compose(provided, not);
+                  var maybe = except(isNothing);
+              </code>
+            </pre>
+            <aside class="notes">
+              <ul>
+                <li> we could have written a function called exists</li>
+                <li>and then skipped the except, the idea of negating a predicate is interesting</li>
+                <li>even if it might be overkill</li>
+              </ul>
+            </aside>
+          </section>
+        </section>
+        <section data-background="images/turtles.jpg">
+          <section>
+            <h3>The Most Common Use For map</h3>
+            <p>pluck</p>
+            <small>taken from JavaScript Combinators by Reg Braithwaite</small>
+            <pre>
+              <code>
+                var pluck = curry(function(key, objs){
+                  return objs.map(function(obj){
+                    return obj[key];
+                  });
+                });
+              </code>
+            </pre>
+          </section>
+          <section>
+            <h3>Generalizing with prop</h3>
+            <pre>
+              <code>
+                var pluck = curry(function(key, objs){
+                  return objs.map(prop(key));
+                });
+              </code>
+            </pre>
+          </section>
+          <section>
+            <h3>Simplifying with compose</h3>
+            <pre>
+              <code>
+                var pluck = compose(map, prop);
+              </code>
+            </pre>
+            <aside class="notes">
+              <ul>
+                <li>we'll call pluck with a name, and the resulting, partially applied function gets fed into map</li>
+                <li>map now has a function waiting for an object, and map is waiting for an array</li>
+              </ul>
+            </aside>
+          </section>
+        </section>
+        <section data-background="images/turtles.jpg">
+          <section>
+            <h3>Rethinking map</h3>
+          </section>
+          <section>
+            <h3>map is just a specialized reduce</h3>
+            <pre>
+              <code>
+                //+ (a → b) → [a] → [b]
+                var map = curry(function map(fn, list){
+                  return reduce(function(acc, x){
+                    acc.push(f(x));
+                    return acc;
+                  }, [], list);
+                });
+              </code>
+            </pre>
+          </section>
+          <section>
+            <h3>So what can be made generic?</h3>
+          </section>
+          <section>
+            <h4>push</h4>
+            <pre>
+              <code>
+                //+ a → [a] → [a]
+                var push = curry(function(x, xs){
+                  xs.push(x);
+                  return xs;
+                });
+              </code>
+            </pre>
+          </section>
+          <section>
+            <h3>But we need to apply a function to x before pushing it</h3>
+          </section>
+          <section>
+            <h3>Getting weird</h3>
+            <pre>
+              <code>
+                //+ (a → c → d) → (b → c) → a → b → d 
+                var weirdCombinator = curry(function(f, g, a, b){
+                  return f(a, g(b))
+                });
+
+                //+ (a → b) → [a] → [b]
+                var map = curry(function(f, a){
+                  return reduce(weirdCombinator(flip(push), f), [], a);
+                });
+              </code>
+            </pre>
+          </section>
+        </section>
+        <section data-background="images/important.jpg">
+          <h3>Use common sense</h3>
+          <p>point-free is cool, but don't let it get out of hand</p>
+        </section>
+        <section data-background="images/lego.jpg">
+          <h1>Putting It All Together</h1>
+        </section>
+        <section data-background="images/lego.jpg">
+          <h2>Letter Counts</h2>
+          <p>Given a string of text, find out how many times each letter occurs</p>
+        </section>
+        <section data-background="images/lego.jpg">
+          <h2>Disclaimer:</h2>
+          <p>This is just an example. It has flaws. Be mad</p>
+        </section>
+        <section data-background="images/tunnel.jpg">
+          <h1>Final Thoughts</h1>
+        </section>
+        <section data-background="images/tunnel.jpg">
+          <h3>Favor Simple Pure Functions</h3>
+          <p class="fragment">easy to test</p>
+          <p class="fragment">easy to reason about</p>
+          <p class="fragment">generalize where it makes sense</p>
+          <p class="fragment">break you app into small pieces</p>
+          <p class="fragment">use composition to build more complex functions</p>
+        </section>
+        <section data-background="images/tunnel.jpg">
+          <h3>Use Higher Order Functions</h3>
+          <p class="fragment">separate orthogonal concerns</p>
+          <p class="fragment">reduce reliance on imperative constructs</p>
+          <p class="fragment">work at higher level of abstraction</p>
+        </section>
+        <section data-background="images/tunnel.jpg">
+          <h3>Favor Simple Data Types</h3>
+          <p class="fragment">use JavaScripts simplicity to your advantage</p>
+          <p class="fragment">generic data types for generic function</p>
+        </section>
+        <section data-background="images/tunnel.jpg">
+          <h3>Learn You A New Language</h3>
+          <small class="fragment">better yet...</small>
+        </section>
+        <section data-background="images/tunnel.jpg">
+          <h3>Learn You A New Paradigm</h3>
+          <aside class="notes">
+            <ul>
+              <li>learning a new lang is one thing, a new paradigm requires learning whole new ways to approach problems</li>
+              <li>luckily some langs require you to learn a new paradigm</li>
+              <li>or just challenge yourself. give yourself constraints. different.js</li>
+            </ul>
+          </aside>
+        </section>
+        <section data-background="images/tunnel.jpg">
+          <h3>References</h3>
+          <p>JavaScript Allonge - Reg Braithwaite</p>
+          <p>Functional JavaScript - Michael Fogus</p>
+          <p>Executions In The Kingdom of Nouns - Steve Yegge</p>
+          <p>Pure Functional JavaScript - Christian Johansen</p>
+          <p>Hey UnderScore, You're Doing It Wrong - Brian Lonsdorf</p>
+          <p>Functional Thinking - Neal Ford</p>
+          <p>JavaScript Combinators - Reg Braithwaite</p>
+          <p>Hardcore Functional JavaScript - Brian Lonsdorf for Frontend Masters</p>
+        </section>
+        <section data-background="images/applause-birds.jpg">
+          <h1>Thanks</h1>
+        </section>
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+    <script>
+    Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      theme: 'night', // available themes are in /css/theme
+      transition: 'linear', // default/cube/page/concave/zoom/linear/fade/none
+      backgroundTransition: 'slide',
+
+    // Parallax scrolling
+    // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+    // parallaxBackgroundSize: '2100px 900px',
+
+    // Optional libraries used to extend on reveal.js
+      dependencies: [
+        { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+        { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+        { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+      ]
+    });
+    </script>
+  </body>
+</html>

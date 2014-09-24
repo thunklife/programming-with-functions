@@ -1,0 +1,48 @@
+.reveal > .backgrounds{
+  opacity: .3;
+}
+
+.reveal .quote{
+  text-align: left;
+  font-style: italic;
+}
+
+.reveal pre{
+  box-shadow: none;
+}
+
+.reveal pre code {
+  box-shadow: 0px 0px 6px rgba(0,0,0,.3);
+  border-radius: 4px;
+}
+
+.reveal blockquote{
+  width: 100%;
+  padding: 0px;
+  font-size: 2.5em;
+  line-height: 1.1em;
+  font-style: normal;
+  background: none;
+  box-shadow: none;
+  text-align: left;
+}
+
+.reveal cite{
+  font-size: 1em;
+  font-style: italic;
+  text-align: right;
+  display: block;
+}
+
+.reveal cite small{
+  vertical-align: baseline;
+  padding-left: 10px
+}
+
+.reveal .higher-order-list{
+  margin: 0 0 100px 0;
+}
+
+.reveal .mono{
+  font-family: "Droid Sans Mono", mono
+}
