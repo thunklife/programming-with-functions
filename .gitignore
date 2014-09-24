@@ -1,0 +1,10 @@
+.DS_Store
+.svn
+log/*.log
+tmp/**
+node_modules/
+package.json
+test/
+Gruntfile.js
+lib/
+.sass-cache
