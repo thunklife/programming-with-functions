@@ -18,7 +18,11 @@
         <section class="intro" data-background="images/leader.jpg">
           <h1>Programming With Functions</h1>
         </section>
+<<<<<<< HEAD
         <section class="speaker" data-background="images/hustle.jpg" data-background-repeat="repeat" data-background-size="500px">
+=======
+        <section class="speaker" data-background="images/sup.jpg" data-background-repeat="repeat" data-background-size="500px">
+>>>>>>> gh-pages
           <h3>@jessewilliamson</h3>
           <h3>wilhelmson.github.io</h3>
         </section>
@@ -294,6 +298,10 @@ var youngest = _.chain(stooges)
   .value(); //=> { age: 21, name: "moe" }
             </code>
           </pre>
+<<<<<<< HEAD
+=======
+          <small>I've been told there is a simpler way, but it's devastating to my point</small>
+>>>>>>> gh-pages
         </section>
         <section data-background="images/compose.jpg">
           <h3>Now using composition</h3>
@@ -343,8 +351,16 @@ compose(first, sortBy(prop("age")))(stooges); //=> { age: 21, name: "moe" }
             </ul>
           </aside>
         </section>
+<<<<<<< HEAD
         <section data-background="images/curry.jpg">
           <h3>A curried function gets its arguments one at a time</h3>
+=======
+        <section data-background="images/gerber.jpg">
+          <blockquote>
+             [C]urrying is the technique of translating the evaluation of a function that takes multiple arguments into evaluating a sequence of functions, each with a single argument
+         </blockquote>
+          <cite>-Wikipedia (again)<small>but still totally legit</small></cite>
+>>>>>>> gh-pages
         </section>
         <section data-background="images/curry.jpg">
           <pre>
@@ -410,19 +426,31 @@ compose(first, sortBy(prop("age")))(stooges); //=> { age: 21, name: "moe" }
             <h3>Common Examples</h3>
           </section>
           <section>
+<<<<<<< HEAD
             <h4>map</h4>
+=======
+            <h3>map</h3>
+>>>>>>> gh-pages
             <p>[a] → (a → b) → [b]</p>
             <pre>
               <code >
                 [1, 2, 3].map(
                   function(n){
                     return n * 2;
+<<<<<<< HEAD
                   }); //=> [1, 4, 6]
+=======
+                  }); //=> [2, 4, 6]
+>>>>>>> gh-pages
               </code>
             </pre>
           </section>
           <section>
+<<<<<<< HEAD
             <h4>filter</h4>
+=======
+            <h3>filter</h3>
+>>>>>>> gh-pages
             <p>[a] → (a → bool) → [a]</p>
             <pre>
               <code >
@@ -434,9 +462,15 @@ compose(first, sortBy(prop("age")))(stooges); //=> { age: 21, name: "moe" }
             </pre>
           </section>
           <section>
+<<<<<<< HEAD
             <h4>reduce</h4>
             <small>aka fold</small>
             <p>[a] → (a → b → b) → b → b*</p>
+=======
+            <h3>reduce</h3>
+            <small>aka fold</small>
+            <p>[a] → (b → a → b) → b → b*</p>
+>>>>>>> gh-pages
             <pre>
               <code >
                 [1, 2, 3].reduce(
@@ -462,7 +496,11 @@ compose(first, sortBy(prop("age")))(stooges); //=> { age: 21, name: "moe" }
           </div>
           <div class="higher-order-list">
             <h3>Reduce</h3>
+<<<<<<< HEAD
             <p>[a] → (a → b → b) → b → b</p>
+=======
+            <p>[a] → (b → a → b) → b → b</p>
+>>>>>>> gh-pages
           </div>
         </section>
         <section data-background="images/birds-eye.jpg">
@@ -478,7 +516,12 @@ compose(first, sortBy(prop("age")))(stooges); //=> { age: 21, name: "moe" }
           <h3>Put your data last</h3>
           <aside class="notes">
             <ul>
+<<<<<<< HEAD
               <li>not just data, but anything that can vary.</li>
+=======
+              <li>think of data not as an argument, but as your functions inputs</li>
+              <li>put your inputs last</li>
+>>>>>>> gh-pages
               <li>put the stuff you want to reuse first</li>
               <li>this enables point-free programming (creating functions without arguments)</li>
             </ul>
@@ -492,7 +535,11 @@ compose(first, sortBy(prop("age")))(stooges); //=> { age: 21, name: "moe" }
           <section>
             <pre>
               <code>
+<<<<<<< HEAD
                 //+ (a → b → b) → b → [a] → b
+=======
+                //+ (b → a → b) → b → [a] → b
+>>>>>>> gh-pages
                 function reduce(f){
                   return function(b){
                     return function(xs){
@@ -502,6 +549,13 @@ compose(first, sortBy(prop("age")))(stooges); //=> { age: 21, name: "moe" }
                 }
               </code>
             </pre>
+<<<<<<< HEAD
+=======
+            <aside class="notes">
+              <li>there are two types of folds left/right</li>
+              <li>on the surface the difference is direction, but it's more than that</li>
+              <li>In other languages, the order of arguments in the xform is different, which can have a huge impact</li>
+>>>>>>> gh-pages
           </section>
           <section>
             <h3>Folds are amazing</h3>
@@ -557,7 +611,10 @@ compose(first, sortBy(prop("age")))(stooges); //=> { age: 21, name: "moe" }
               <ul>
                 <li>using folds greatly simplifies how you solve a problem</li>
                 <li>you don't need to think about looping, etc, you just think about the values you have and how you combine them</li>
+<<<<<<< HEAD
                 <li>array reordering - take a sorted array, reorder by some prop, but maintain original order in sub orders</li>
+=======
+>>>>>>> gh-pages
               </ul>
             </aside>
           </section>
@@ -620,7 +677,11 @@ compose(first, sortBy(prop("age")))(stooges); //=> { age: 21, name: "moe" }
                 //+ (a → b) → [a] → [b]
                 var betterMap = flip(_.map); //because we're all using Underscore/Lo-Dash
 
+<<<<<<< HEAD
                 betterMap(function(x){ return x * x; }, [1,2,3]); //=> [1, 4, 9];
+=======
+                betterMap(function(x){ return x * x; })([1,2,3]); //=> [1, 4, 9];
+>>>>>>> gh-pages
 
                 //or
 
@@ -858,11 +919,19 @@ compose(first, sortBy(prop("age")))(stooges); //=> { age: 21, name: "moe" }
             <h3>Generalized Guards</h3>
             <pre>
               <code>
+<<<<<<< HEAD
                 var provided = curry(function(guard, fn){
                   return function(){
                     return guard.apply(this, args) ? fn.apply(this, args) : void 0;
                   }
                 });
+=======
+          var provided = curry(function(guard, fn){
+            return function(){
+              return guard.apply(this, arguments) ? fn.apply(this, arguments) : void 0;
+            }
+          });
+>>>>>>> gh-pages
               </code>
             </pre>
             <pre>
@@ -997,28 +1066,44 @@ compose(first, sortBy(prop("age")))(stooges); //=> { age: 21, name: "moe" }
             </pre>
           </section>
           <section>
-            <h3>So what can be made generic?</h3>
+            <h3>So what can be made generic</h3>
           </section>
           <section>
-            <h4>push</h4>
+            <h3>push</h3>
             <pre>
               <code>
                 //+ a → [a] → [a]
-                var push = curry(function(x, xs){
+                var push = curry(function push(x, xs){
                   xs.push(x);
                   return xs;
                 });
               </code>
             </pre>
+            <pre>
+              <code>
+                //+ (a → b) → [a] → [b]
+                var map = curry(function map(fn, list){
+                  return reduce(function(acc, x){
+                    return push(fn(x), acc);
+                  }, [], list);
+                });
+              </code>
+            </pre>
           </section>
           <section>
-            <h3>But we need to apply a function to x before pushing it</h3>
+            <h3>What if we think more abstractly</h3>
+            <aside class="notes">
+              <ul>
+                <li>push is specific to this case</li>
+                <li>abstractly, it's just a binary function, that needs some other function applied to it's second argument</li>
+              </ul>
+            </aside>
           </section>
           <section>
             <h3>Getting weird</h3>
             <pre>
               <code>
-                //+ (a → c → d) → (b → c) → a → b → d 
+                //+ (a → c → d) → (b → c) → a → b → d
                 var weirdCombinator = curry(function(f, g, a, b){
                   return f(a, g(b))
                 });
@@ -1065,8 +1150,8 @@ compose(first, sortBy(prop("age")))(stooges); //=> { age: 21, name: "moe" }
         </section>
         <section data-background="images/tunnel.jpg">
           <h3>Favor Simple Data Types</h3>
-          <p class="fragment">use JavaScripts simplicity to your advantage</p>
-          <p class="fragment">generic data types for generic function</p>
+          <p class="fragment">use JavaScript's simplicity to your advantage</p>
+          <p class="fragment">generic data types for generic functions</p>
         </section>
         <section data-background="images/tunnel.jpg">
           <h3>Learn You A New Language</h3>
@@ -1084,16 +1169,35 @@ compose(first, sortBy(prop("age")))(stooges); //=> { age: 21, name: "moe" }
         </section>
         <section data-background="images/tunnel.jpg">
           <h3>References</h3>
-          <p>JavaScript Allonge - Reg Braithwaite</p>
-          <p>Functional JavaScript - Michael Fogus</p>
-          <p>Executions In The Kingdom of Nouns - Steve Yegge</p>
-          <p>Pure Functional JavaScript - Christian Johansen</p>
-          <p>Hey UnderScore, You're Doing It Wrong - Brian Lonsdorf</p>
-          <p>Functional Thinking - Neal Ford</p>
-          <p>JavaScript Combinators - Reg Braithwaite</p>
-          <p>Hardcore Functional JavaScript - Brian Lonsdorf for Frontend Masters</p>
         </section>
-        <section data-background="images/applause-birds.jpg">
+        <section data-background="images/tunnel.jpg">
+          <section>
+            <h5>Reading:</h5>
+            <ul>
+              <li><a href="https://leanpub.com/javascript-allonge/">JavaScript Allonge</a> - Reg Braithwaite</li>
+              <li><a href="http://functionaljavascript.com/">Functional JavaScript</a> - Michael Fogus</li>
+              <li><a href="http://steve-yegge.blogspot.com/2006/03/execution-in-kingdom-of-nouns.html">Execution In The Kingdom of Nouns</a> - Steve Yegge</li>
+              <li><a href="http://learnyouahaskell.com/">Learn You a Haskell for Great Good</a> - Miran Lipovaca</li>
+            </ul>
+          </section>
+          <section>
+            <h5>Watching:</h5>
+            <ul>
+              <li><a href="http://vimeo.com/43382919">Pure, functional JavaScript</a> - Christian Johansen</li>
+              <li><a href="https://www.youtube.com/watch?v=m3svKOdZijA">Hey Underscore, You're Doing It Wrong</a> - Brian Lonsdorf</li>
+              <li><a href="https://www.youtube.com/watch?v=7aYS9PcAITQ">Functional Thinking</a> - Neal Ford</li>
+              <li><a href="http://vimeo.com/97408202">JavaScript Combinators</a> - Reg Braithwaite</li>
+            </ul>
+          </section>
+          <section>
+            <h5>Courses:</h5>
+            <ul>
+              <li><a href="https://frontendmasters.com/courses/functional-javascript/">Hardcore Functional Javascript</a> - Brian Lonsdorf for Frontend Masters</li>
+              <li><a href="http://www.seas.upenn.edu/~cis194/spring13/lectures.html">CIS 194: Introduction to Haskell</a> - Brent Yorgey for UPenn</li>
+            </ul>
+          </section>
+        </section>
+        <section data-background="images/applause-crowd.jpg">
           <h1>Thanks</h1>
         </section>
       </div>
